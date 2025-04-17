@@ -28,9 +28,16 @@
       right: 1rem;
     }
     nav {
-      display: none;
+      display: flex;
       flex-direction: column;
       background-color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
     }
     nav a {
       color: white;
@@ -68,9 +75,10 @@
   <a href="contact.html">Contact</a>
 </nav>
 
+
 <main>
   <h2>Welcome to my website!</h2>
-  <p>This is a simple site with a menu.</p>
+  <p>This is a simple site with a sliding menu.</p>
 </main>
 
 <footer>
@@ -80,10 +88,10 @@
 <script>
   function toggleMenu() {
     const menu = document.getElementById('menu');
-    if (menu.style.display === 'flex') {
-      menu.style.display = 'none';
+    if (menu.style.transform === 'translateY(0%)') {
+      menu.style.transform = 'translateY(-100%)';
     } else {
-      menu.style.display = 'flex';
+      menu.style.transform = 'translateY(0%)';
     }
   }
 </script>
