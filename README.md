@@ -1,2 +1,2 @@
-# IsabellaEyerly.github.io
-My personal website -Isabella Eyerly
+# IsabellaPhamEyerly.github.io
+My personal website -Isabella Pham Eyerly
