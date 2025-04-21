@@ -51,6 +51,9 @@
       width: 100%;
       font-size: 1rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     nav a:hover, .menu-button-sub:hover {
       background-color: #555;
@@ -67,13 +70,28 @@
     }
     /* Dropdown subpages style */
     .subpages {
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
       flex-direction: column;
       background-color: #444;
+      transition: max-height 0.4s ease-out;
     }
     .subpages a {
       padding-left: 2rem; /* indent subpages */
       font-size: 0.9rem;
+    }
+    .subpages.open {
+      max-height: 500px;
+      transition: max-height 0.4s ease-in;
+    }
+    /* Icon rotation */
+    .dropdown-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .rotate {
+      transform: rotate(90deg); /* points to the side when closed */
     }
   </style>
 </head>
@@ -90,7 +108,10 @@
   <a href="about.html">About</a>
 
   <div class="menu-item-with-subpages">
-    <button class="menu-button-sub" onclick="toggleDropdown()">Projects ▼</button>
+    <button class="menu-button-sub" onclick="toggleDropdown()">
+      Projects 
+      <span id="dropdownIcon" class="dropdown-icon">▼</span>
+    </button>
     <div id="subpages" class="subpages">
       <a href="geniusproject.html">Genius Project</a>
       <a href="https://sites.google.com/view/sage-creek-graduation-cords/home">Graduation Cord Website</a>
@@ -125,11 +146,9 @@
 
   function toggleDropdown() {
     const subpages = document.getElementById('subpages');
-    if (subpages.style.display === 'flex') {
-      subpages.style.display = 'none';
-    } else {
-      subpages.style.display = 'flex';
-    }
+    const icon = document.getElementById('dropdownIcon');
+    subpages.classList.toggle('open');
+    icon.classList.toggle('rotate');
   }
 </script>
 
