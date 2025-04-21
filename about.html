@@ -1,13 +1,114 @@
-<html>
-  <head>
-    <title>About Isabella Pham Eyerly</title>
-  </head>
-  <body>
-    <h4>BEGINNING</h4>
-    <p>Where are you from?</p>
-    <h4>MIDDLE</h4>
-    <p>Where are you now?</p>
-    <h4>END</h4> 
-    <p>Where do you want to go?</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Isabella Pham Eyerly</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+    .menu-button {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      border-bottom: 1px solid #555;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Isabella Pham Eyerly</h1>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  
+   <div class="dropdown">
+    <button class="dropbtn">Projects ▼</button>
+    <div class="dropdown-content">
+      <a href="geniusproject.html">Genius Project</a>
+      <a href="gradcord.html">Graduation Cord Website</a>
+      <a href="alimental.html">Alimental</a>
+      <a href="hexalicious.html">Hexalicious</a>
+
+      <!-- Add more projects here -->
+    </div>
+  </div>
+
+  <a href="resume.html">Resume</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+
+<main>
+  <h2>Welcome to my website!</h2>
+  <p>work in progress obv</p>
+</main>
+
+<footer>
+  © 2025 Isabella Pham Eyerly
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    if (menu.style.transform === 'translateY(0%)') {
+      menu.style.transform = 'translateY(-100%)';
+    } else {
+      menu.style.transform = 'translateY(0%)';
+    }
+  }
+</script>
+
+</body>
 </html>
