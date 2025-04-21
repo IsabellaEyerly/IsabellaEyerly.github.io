@@ -38,14 +38,21 @@
       height: 100%;
       transform: translateY(-100%);
       transition: transform 0.3s ease;
+      overflow-y: auto;
     }
-    nav a {
+    nav a, .menu-button-sub {
       color: white;
       padding: 1rem;
       text-decoration: none;
       border-bottom: 1px solid #555;
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
     }
-    nav a:hover {
+    nav a:hover, .menu-button-sub:hover {
       background-color: #555;
     }
     main {
@@ -58,8 +65,19 @@
       font-size: 0.8rem;
       color: #888;
     }
+    /* Dropdown subpages style */
+    .subpages {
+      display: none;
+      flex-direction: column;
+      background-color: #444;
+    }
+    .subpages a {
+      padding-left: 2rem; /* indent subpages */
+      font-size: 0.9rem;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -86,9 +104,6 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-
-
-
 <main>
   <h2>Welcome to my website!</h2>
   <p>work in progress obv</p>
@@ -105,6 +120,15 @@
       menu.style.transform = 'translateY(-100%)';
     } else {
       menu.style.transform = 'translateY(0%)';
+    }
+  }
+
+  function toggleDropdown() {
+    const subpages = document.getElementById('subpages');
+    if (subpages.style.display === 'flex') {
+      subpages.style.display = 'none';
+    } else {
+      subpages.style.display = 'flex';
     }
   }
 </script>
