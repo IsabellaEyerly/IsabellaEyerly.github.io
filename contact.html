@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Title</title> <!-- Change this for each page -->
+  <title>Isabella Pham Eyerly</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -38,15 +38,24 @@
       height: 100%;
       transform: translateY(-100%);
       transition: transform 0.3s ease;
-      z-index: 1000;
+      overflow-y: auto;
     }
-    nav a {
+    nav a, .menu-button-sub {
       color: white;
       padding: 1rem;
       text-decoration: none;
       border-bottom: 1px solid #555;
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    nav a:hover {
+    nav a:hover, .menu-button-sub:hover {
       background-color: #555;
     }
     main {
@@ -59,8 +68,34 @@
       font-size: 0.8rem;
       color: #888;
     }
+    /* Dropdown subpages style */
+    .subpages {
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-color: #444;
+      transition: max-height 0.4s ease-out;
+    }
+    .subpages a {
+      padding-left: 2rem; /* indent subpages */
+      font-size: 0.9rem;
+    }
+    .subpages.open {
+      max-height: 500px;
+      transition: max-height 0.4s ease-in;
+    }
+    /* Icon rotation */
+    .dropdown-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .rotate {
+      transform: rotate(90deg); /* points to the side when closed */
+    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -71,15 +106,28 @@
 <nav id="menu">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
-  <a href="geniusproject.html">Projects</a>
+
+  <div class="menu-item-with-subpages">
+    <button class="menu-button-sub" onclick="toggleDropdown()">
+      Projects 
+      <span id="dropdownIcon" class="dropdown-icon">▼</span>
+    </button>
+    <div id="subpages" class="subpages">
+      <a href="geniusproject.html">Genius Project</a>
+      <a href="https://sites.google.com/view/sage-creek-graduation-cords/home">Graduation Cord Website</a>
+      <a href="https://sites.google.com/view/alimental/fruits">Alimental</a>
+      <a href="hexalicious.html">Hexalicious</a>
+    </div>
+  </div>
+
   <a href="resume.html">Resume</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <main>
-  <h2>Page Title</h2> <!-- Change this too -->
-  <p>Page-specific content goes here!</p>
+  <h2>Welcome to my website!</h2>
+  <p>work in progress obv</p>
 </main>
 
 <footer>
@@ -94,6 +142,13 @@
     } else {
       menu.style.transform = 'translateY(0%)';
     }
+  }
+
+  function toggleDropdown() {
+    const subpages = document.getElementById('subpages');
+    const icon = document.getElementById('dropdownIcon');
+    subpages.classList.toggle('open');
+    icon.classList.toggle('rotate');
   }
 </script>
 
