@@ -62,12 +62,29 @@
       padding: 2rem;
       text-align: center;
     }
+    nav {
+      display: flex;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
     footer {
       text-align: center;
       margin-top: 2rem;
       font-size: 0.8rem;
       color: #888;
       padding: 1rem;
+      z-index: 1; 
+      position: relative; 
     }
 
     .social-icons img {
@@ -80,10 +97,9 @@
 
     .social-icons img:hover {
       filter: grayscale(0%);
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
-    /* Dropdown subpages style */
     .subpages {
       max-height: 0;
       overflow: hidden;
@@ -93,20 +109,19 @@
       transition: max-height 0.4s ease-out;
     }
     .subpages a {
-      padding-left: 2rem; /* indent subpages */
+      padding-left: 2rem; 
       font-size: 0.9rem;
     }
     .subpages.open {
       max-height: 500px;
       transition: max-height 0.4s ease-in;
     }
-    /* Icon rotation */
     .dropdown-icon {
       display: inline-block;
       transition: transform 0.3s ease;
     }
     .rotate {
-      transform: rotate(90deg); /* points to the side when closed */
+      transform: rotate(90deg);
     }
   </style>
 </head>
